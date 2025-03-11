@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  .glass-effect {
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200/20 dark:border-gray-700/20 shadow-xl shadow-gray-200/20 dark:shadow-gray-900/20;
+  }
+
+  .glass-effect-light {
+    @apply bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-gray-200/10 dark:border-gray-700/10 shadow-lg shadow-gray-200/10 dark:shadow-gray-900/10;
+  }
+
+  .glass-card {
+    @apply rounded-xl glass-effect;
+  }
+
+  .glass-card-light {
+    @apply rounded-xl glass-effect-light;
+  }
+
+  .gradient-border {
+    @apply relative before:absolute before:inset-0 before:-z-10 before:p-[1px] before:rounded-xl before:bg-gradient-to-r before:from-primary-500 before:via-purple-500 before:to-pink-500;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 via-purple-600 to-pink-600 bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary-500 via-purple-500 to-pink-500;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
