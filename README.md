@@ -4,7 +4,7 @@
 
 Moodly is a modern, user-friendly application designed to help you track and understand your emotional well-being journey. With beautiful visualizations, AI-powered insights, and personalized recommendations, Moodly makes it easy to maintain awareness of your emotional health.
 
-🌐 **Live Demo**: [https://prismatic-malabi-faac84.netlify.app](https://prismatic-malabi-faac84.netlify.app)
+🌐 **Live Demo**: [https://moodly1.netlify.app]
 
 ## Features
 
