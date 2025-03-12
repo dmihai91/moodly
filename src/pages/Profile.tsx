@@ -20,13 +20,29 @@ export function Profile() {
           setUserId(user.id);
           setEmail(user.email || '');
           
-          const { data: profile } = await supabase
+          // First try to get the existing profile
+          const { data: profile, error: fetchError } = await supabase
             .from('profiles')
             .select('full_name')
             .eq('id', user.id)
-            .single();
+            .maybeSingle(); // Use maybeSingle() instead of single()
 
-          if (profile) {
+          if (fetchError) throw fetchError;
+
+          // If no profile exists, create one
+          if (!profile) {
+            const { error: insertError } = await supabase
+              .from('profiles')
+              .insert([
+                {
+                  id: user.id,
+                  full_name: '',
+                  email: user.email
+                }
+              ]);
+
+            if (insertError) throw insertError;
+          } else {
             setName(profile.full_name || '');
           }
         }

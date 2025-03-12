@@ -3,7 +3,7 @@ import { MoodSelector } from '@/components/MoodSelector';
 import { DashboardCharts } from '@/components/DashboardCharts';
 import { AIInsights } from '@/components/AIInsights';
 import { PsychologistSuggestions } from '@/components/PsychologistSuggestions';
-import { BarChart, Calendar, Brain, Heart, TrendingUp, Clock, Dumbbell, BookOpen } from 'lucide-react';
+import { BarChart, Calendar, Smile as SmileBeam, Heart, TrendingUp, Clock, Dumbbell, BookOpen } from 'lucide-react';
 import { format } from 'date-fns';
 import { supabase } from '@/utils/supabase';
 import type { MoodEntry } from '@/types';
@@ -117,7 +117,7 @@ export function Dashboard({ moodHistory, onMoodSelect, onSaveState, hasUnsavedCh
         duration: "10-15 mins daily",
         intensity: "Beginner",
         category: "Meditation",
-        icon: Brain,
+        icon: SmileBeam,
         color: "text-purple-600",
         bgColor: "bg-purple-50 dark:bg-purple-900/20"
       });

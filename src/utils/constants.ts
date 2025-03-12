@@ -1,22 +1,10 @@
-import { 
-  Smile, 
-  Frown as Sad, 
-  Angry, 
-  Heart as Relaxed,
-  Smile as MoodlyIcon,
-  Meh as Anxious,
-  Headphones, 
-  Cog as Yoga, 
-  Book, 
-  Heart,
-  Frown as Stressed 
-} from 'lucide-react';
+import { SmilePlus as Happy, Frown as Sad, Angry as Angry, Smile as Relaxed, Smile as MoodlyIcon, Frown as Anxious, Headphones, Cog as Yoga, Book, Heart, Meh as Stressed } from 'lucide-react';
 
 export { MoodlyIcon };
 
 export const moods = [
   { 
-    icon: Smile,
+    icon: Happy,
     label: "Happy", 
     message: "Keep smiling! Spread the joy. 😊",
     isNegative: false,

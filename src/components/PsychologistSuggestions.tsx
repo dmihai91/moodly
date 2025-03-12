@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserRound, Brain, MessageCircle, Calendar } from 'lucide-react';
+import { UserCheck, Star, MessageCircle, Calendar } from 'lucide-react';
 import type { MoodEntry } from '../types';
 
 type PsychologistSuggestionsProps = {
@@ -101,7 +101,7 @@ export function PsychologistSuggestions({ moodHistory }: PsychologistSuggestions
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-gray-900/30 p-6">
       <div className="flex items-center gap-3 mb-6">
-        <UserRound className="w-6 h-6 text-purple-500 dark:text-purple-400" />
+        <UserCheck className="w-6 h-6 text-purple-500 dark:text-purple-400" />
         <h2 className="text-lg font-medium text-gray-800 dark:text-gray-200">Recommended Specialists</h2>
       </div>
 
@@ -126,7 +126,7 @@ export function PsychologistSuggestions({ moodHistory }: PsychologistSuggestions
                 </p>
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-2">
-                    <Brain className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <Star className="w-4 h-4 text-gray-500 dark:text-gray-400" />
                     <span className="text-gray-600 dark:text-gray-300">{specialist.approach}</span>
                   </div>
                   <div className="flex items-center gap-2">

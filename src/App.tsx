@@ -9,10 +9,12 @@ import { Profile } from '@/pages/Profile';
 import { Stats } from '@/pages/Stats';
 import { resources } from '@/utils/constants';
 import { ThemeProvider } from '@/utils/ThemeContext';
+import { MoodlyIcon } from '@/utils/constants';
 import type { MoodEntry } from '@/types';
 
 function App() {
   const [session, setSession] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
   const [moodHistory, setMoodHistory] = useState<MoodEntry[]>([]);
   const [unsavedChanges, setUnsavedChanges] = useState(false);
 
@@ -25,12 +27,14 @@ function App() {
 
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
+      setLoading(false);
     });
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
+      setLoading(false);
     });
 
     return () => subscription.unsubscribe();
@@ -87,10 +91,29 @@ function App() {
     await supabase.auth.signOut();
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-500 via-purple-500 to-pink-500 shadow-lg mb-4 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-colors"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/50 via-purple-500/50 to-pink-500/50 animate-pulse"></div>
+            <div className="relative z-10 transform transition-transform group-hover:scale-110">
+              <MoodlyIcon className="w-10 h-10 text-white" strokeWidth={2.5} />
+            </div>
+          </div>
+          <div className="animate-pulse">
+            <div className="h-4 w-24 bg-gray-200 dark:bg-gray-700 rounded mx-auto"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (!session) {
     return (
       <ThemeProvider>
-        <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
           <Auth />
         </div>
       </ThemeProvider>

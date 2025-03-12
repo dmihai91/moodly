@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, Lightbulb, ListChecks, Key, RefreshCw } from 'lucide-react';
+import { Sparkles, Lightbulb, ListChecks, Key, RefreshCw } from 'lucide-react';
 import { getPersonalizedAdvice } from '@/utils/openai';
 import type { MoodEntry } from '@/types';
 
@@ -49,7 +49,7 @@ export function AIInsights({ moodHistory }: AIInsightsProps) {
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-gray-900/30 p-6">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <Brain className="w-6 h-6 text-purple-500 dark:text-purple-400" />
+          <Sparkles className="w-6 h-6 text-purple-500 dark:text-purple-400" />
           <h2 className="text-lg font-medium text-gray-800 dark:text-gray-200">AI Insights</h2>
         </div>
         {!loading && !error && (

@@ -125,7 +125,7 @@ export function Layout({ children, onSignOut }: LayoutProps) {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 flex">
       <button
         onClick={toggleMobileMenu}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg"
+        className="lg:hidden fixed top-4 right-4 z-50 p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg"
       >
         {isMobileMenuOpen ? (
           <X className="w-6 h-6 text-gray-600 dark:text-gray-300" />
